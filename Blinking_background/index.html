@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window</title>
+    <link href="window.css" rel="styleSheet">
+</head>
+<body>
+    <button onclick="Start()">Start The Show
+    <button onclick="Stop()">Stop the Show</button>
+    <button onclick="Toggle()">ToggleButton</button>
+    <h3 class="status">OFF</h3>
+   <script>
+   
+
+      const clr=["red","orange","purple"]
+      indx=0
+    
+   
+    let state="OFF"
+    function Toggle(){
+     if(state=="OFF"){
+        Start()
+       state="ON"
+     }
+     else{
+         Stop();
+         state="OFF";
+     }
+     
+     document.querySelector('.status').innerText=state
+        
+    }
+    
+      function Start(){
+       strtclr= window.setInterval(()=>{
+      if(indx==3){
+          indx=0
+      }  
+      document.body.style.background=clr[indx]
+      indx++
+      },500)
+        }
+      
+
+    function Stop(){
+        clearInterval(strtclr);
+    }   
+    
+    </script>
+</body>
+</html>
